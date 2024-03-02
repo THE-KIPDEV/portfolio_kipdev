@@ -1,7 +1,7 @@
 "use client";
 
 interface props {
-  skills: { id: number; name: string; createdAt: Date; updateAt: Date }[];
+  skills: { id: number; name: string; createdAt: Date; updatedAt: Date }[];
 }
 
 import { TagCloud } from "@frank-mayer/react-tag-cloud";
