@@ -54,7 +54,7 @@ export function Project({ project }: props) {
                 viewBox="0 0 24 24"
                 stroke-width="1.5"
                 stroke="currentColor"
-                class="h-5 w-5 text-gray-400"
+                className="h-5 w-5 text-gray-400"
               >
                 <path
                   stroke-linecap="round"
