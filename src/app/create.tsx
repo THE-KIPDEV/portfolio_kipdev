@@ -1,20 +1,17 @@
 import { unstable_noStore as noStore } from "next/cache";
 import Image from "next/image";
+import { CreateSkill } from "~/app/_components/create-skill";
 import { TagCloudHome } from "~/app/_components/_tag-cloud";
 
+import { getServerAuthSession } from "~/server/auth";
 import { api } from "~/trpc/server";
 import { Logo } from "~/app/_svg/Logo";
 import { Project } from "~/app/_components/_project";
 
-export interface Skill {
-  id: number;
-  name: string;
-  createdAt: Date;
-  updateAt: Date;
-}
-
 export default async function Home() {
   noStore();
+  //const hello = await api.post.hello.query({ text: "from tRPC" });
+  //const session = await getServerAuthSession();
 
   const skills: Skill[] = await api.skill.getAll.query();
   const projects = [
@@ -92,13 +89,13 @@ export default async function Home() {
                 </p>
                 <div className="mt-10 flex items-center gap-x-6">
                   <a
-                    href="#skills"
+                    href="#"
                     className="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                   >
                     Mes compétences
                   </a>
                   <a
-                    href="#projects"
+                    href="#"
                     className="text-sm font-semibold leading-6 text-gray-900"
                   >
                     Mes projets
@@ -125,7 +122,7 @@ export default async function Home() {
         </div>
         <div className="absolute inset-x-0 bottom-0 -z-10 h-24 bg-gradient-to-t from-white sm:h-32"></div>
         <div>
-          <h2 id="skills" className="mb-8 justify-center  text-center flex items-center text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+          <h2 className="mb-8 justify-center  text-center flex items-center text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
             <Image
               src="/img/bomb.png"
               alt="Bomb"
@@ -140,7 +137,7 @@ export default async function Home() {
           </div>
         </div>
         <div className="m-auto max-w-5xl p-4">
-        <h2 id="projects" className="mb-8 justify-center text-center flex items-center text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+        <h2 className="mb-8 justify-center text-center flex items-center text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
             <Image
               src="/img/exploding-head.png"
               alt="Bomb"
@@ -154,8 +151,8 @@ export default async function Home() {
             role="list"
             className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3"
           >
-            {projects.map((project, index) => (
-              <Project key={index} project={project} />
+            {projects.map((project) => (
+              <Project project={project} />
             ))}
           </ul>
         </div>
