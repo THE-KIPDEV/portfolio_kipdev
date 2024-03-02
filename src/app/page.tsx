@@ -3,7 +3,7 @@ import Image from "next/image";
 import { TagCloudHome } from "~/app/_components/_tag-cloud";
 
 import { api } from "~/trpc/server";
-import { Logo } from "~/app/_svg/Logo";
+import { Logo } from "~/app/_svg/logo";
 import { Project } from "~/app/_components/_project";
 
 export interface Skill {
