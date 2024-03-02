@@ -10,7 +10,7 @@ export interface Skill {
   id: number;
   name: string;
   createdAt: Date;
-  updateAt: Date;
+  updatedAt: Date;
 }
 
 export default async function Home() {
