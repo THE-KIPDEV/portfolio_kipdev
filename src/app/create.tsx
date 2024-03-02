@@ -8,6 +8,14 @@ import { api } from "~/trpc/server";
 import { Logo } from "~/app/_svg/logo";
 import { Project } from "~/app/_components/_project";
 
+export interface Skill {
+  id: number;
+  name: string;
+  createdAt: Date;
+  updateAt: Date;
+}
+
+
 export default async function Home() {
   noStore();
   //const hello = await api.post.hello.query({ text: "from tRPC" });
