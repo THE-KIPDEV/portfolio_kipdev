@@ -10,7 +10,7 @@ export function TagCloudHome({ skills }: props) {
   const tags = skills.map((skill) => skill.name);
   return (
     <TagCloud
-      options={(w: Window & typeof globalThis): TagCloudOptions => ({
+      options={(w: Window & typeof globalThis) => ({
         radius: Math.min(500, w.innerWidth, w.innerHeight) / 2,
         maxSpeed: "fast",
       })}
